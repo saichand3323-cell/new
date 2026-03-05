@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Happy Birthday Akhila Bhavani Garuuu...</title>
+
+<style>
+
+body{
+    margin:0;
+    padding:0;
+    font-family:Arial, sans-serif;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+
+    background:url('background.jpg');
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+}
+
+/* Glass transparent box */
+.content{
+    background:rgba(0,0,0,0.25);
+    backdrop-filter:blur(6px);
+    padding:50px;
+    border-radius:20px;
+    box-shadow:0 0 30px rgba(255,255,255,0.3);
+
+    margin-top:15cm;   /* moved subject down */
+}
+
+/* Sky blue shining birthday text */
+.shine{
+    font-size:42px;
+    font-weight:bold;
+
+    background:linear-gradient(90deg,#87CEFA,#B0E2FF,#87CEFA);
+    background-size:200%;
+
+    -webkit-background-clip:text;
+    color:transparent;
+
+    animation:shineText 3s linear infinite;
+
+    text-shadow:0 0 2px rgba(255,255,255,0.6); /* very soft shine only */
+}
+
+@keyframes shineText{
+    0%{background-position:-200%;}
+    100%{background-position:200%;}
+}
+
+/* Sky blue glowing name */
+.shine{
+    font-size:42px;
+    font-weight:bold;
+    color:#87CEFA;
+
+    text-shadow:0 0 3px rgba(255,255,255,0.6);
+
+    animation:shineText 3s infinite alternate;
+}
+
+/* Subtitle */
+h2{
+    font-style:italic;
+    font-weight:normal;
+    margin-top:15px;
+}
+
+/* Timer text */
+#timer{
+    margin-top:30px;
+    font-size:24px;
+    line-height:36px;
+
+    text-shadow:0 0 10px rgba(255,255,255,0.8);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="content">
+
+<h1 class="shine">🎉 Happy Birthday 🎂</h1>
+<h1 class="name">Akhila Bhavani Garuuu...</h1>
+
+<h2>— From a well-known stranger 💫</h2>
+
+<div id="timer"></div>
+
+</div>
+
+<script>
+
+function calculateTime() {
+
+const birthDate = new Date("March 11, 2000 00:00:00");
+const now = new Date();
+
+let years = now.getFullYear() - birthDate.getFullYear();
+let months = now.getMonth() - birthDate.getMonth();
+let days = now.getDate() - birthDate.getDate();
+
+if (days < 0) {
+    months--;
+    days += 30;
+}
+
+if (months < 0) {
+    years--;
+    months += 12;
+}
+
+const difference = now - birthDate;
+
+const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+const minutes = Math.floor((difference / (1000 * 60)) % 60);
+const seconds = Math.floor((difference / 1000) % 60);
+
+document.getElementById("timer").innerHTML =
+"You have beautifully lived for:<br><br>" +
+years + " Years " +
+months + " Months " +
+days + " Days <br>" +
+hours + " Hours " +
+minutes + " Minutes " +
+seconds + " Seconds ✨";
+
+}
+
+setInterval(calculateTime,1000);
+
+</script>
+
+</body>
+</html>
